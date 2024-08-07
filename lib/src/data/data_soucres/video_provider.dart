@@ -7,7 +7,9 @@ class VideoDataProvider {
   Future<VideoResponse> fetchVideo() async {
     try {
       final response =
-          await http.get(Uri.parse('${ApiConstants.baseAPIUrlVedio}/videos'));
+          await http.get(Uri.parse('https://nu-exercise-videos-api-93ee2892edae.herokuapp.com/api/videos'),headers: {
+            "x-apikey-header":"api-access-key-5544"
+          });
 
       if (response.statusCode == 200) {
         return VideoResponse.fromJson(jsonDecode(response.body));

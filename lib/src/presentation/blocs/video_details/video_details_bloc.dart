@@ -17,8 +17,8 @@ class VideoDetailsBloc extends Bloc<VideoDetailEvent, VideoDetailState> {
       emit(VideoDetailStateLoading());
       final videos = await videoDetailRepository.fetchVideoDetails(event.id);
       // //print("object  ${response.first}");
-      if (videos.data.isNotEmpty) {
-        emit(VideoDetailStateSucess(videos));
+      if (videos.data.id.isNotEmpty) {
+        emit(VideoDetailStateSucess(videos.data));
       } else {
         emit(VideoDetailStateErrorState("Failed to try again"));
       }

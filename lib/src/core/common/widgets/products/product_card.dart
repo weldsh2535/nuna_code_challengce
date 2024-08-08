@@ -10,6 +10,7 @@ import 'package:nuna_code_challenges/src/core/constants/colors.dart';
 import 'package:nuna_code_challenges/src/core/constants/sizes.dart';
 import 'package:nuna_code_challenges/src/core/utils/helpers/helper_funcations.dart';
 import 'package:nuna_code_challenges/src/domain/models/products.dart';
+import 'package:nuna_code_challenges/src/presentation/screens/product_details/product_detail.dart';
 import '../images/t_rounded_images.dart';
 
 class ProductCard extends StatelessWidget {
@@ -21,7 +22,12 @@ class ProductCard extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: () {
-        
+        Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>   ProductDetail(products: products,)),
+                    );
+       // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>  ProductDetail(products: products,)));
       },
       child: Container(
         width: 180,

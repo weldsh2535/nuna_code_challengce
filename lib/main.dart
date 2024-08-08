@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nuna_code_challenges/bloc_observer.dart';
 import 'package:nuna_code_challenges/navigation_menu.dart';
 import 'package:nuna_code_challenges/src/data/data_soucres/comment_provider.dart';
@@ -14,11 +15,10 @@ import 'package:nuna_code_challenges/src/presentation/blocs/comments/comments_bl
 import 'package:nuna_code_challenges/src/presentation/blocs/posts/posts_bloc.dart';
 import 'package:nuna_code_challenges/src/presentation/blocs/products/products_bloc.dart';
 import 'package:nuna_code_challenges/src/presentation/blocs/videos/video_bloc.dart';
-import 'package:nuna_code_challenges/src/presentation/screens/home.dart';
 
 void main() {
   Bloc.observer = AppBlocObserver();
-  runApp(App());
+  ProviderScope( child: App(),);
 }
 
 class App extends StatelessWidget {

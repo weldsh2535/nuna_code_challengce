@@ -35,7 +35,7 @@ class ProductDetail extends StatelessWidget {
                 //Rating and share button
                  RatingAndShareWidget(rating: products.rating,),
                  ProductMetaData(product: products),
-                // const ProductAttribute(),
+
                 //description
                 const TSectionHeading(title: 'Description',showActionButton: false,),
                 const SizedBox(height: TSizes.spaceBtwItems,),

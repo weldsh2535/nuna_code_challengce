@@ -25,10 +25,6 @@ class ProductReviewScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            //  Text("Ratring deccc data"),
-              // const SizedBox(
-              //   height: TSizes.spaceBtwItems,
-              // ),
               TRatingBarIndicator(rating:product.rating),
               RatingBarIndicator(
                 rating: 3.4,
@@ -37,14 +33,10 @@ class ProductReviewScreen extends StatelessWidget {
                 itemBuilder: (_, index) =>
                     const Icon(Iconsax.star1, color: TColors.primary),
               ),
-              // Text(
-              //   '12/3/444',
-              //   style: Theme.of(context).textTheme.bodySmall,
-              // ),
               const SizedBox(
                 height: TSizes.spaceBtwSections,
               ),
-            // Map reviews to UserReviewCard widgets
+
               ...product.reviews.map((review) => UserReviewCard(review: review)),
                
             ],

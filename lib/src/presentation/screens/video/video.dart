@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:nuna_code_challenges/src/core/common/widgets/skeleton_widget/listtile_skeleton.dart';
 import 'package:nuna_code_challenges/src/core/constants/colors.dart';
 import 'package:nuna_code_challenges/src/presentation/blocs/videos/video_bloc.dart';
 import 'package:nuna_code_challenges/src/presentation/blocs/videos/video_event.dart';
@@ -31,7 +32,7 @@ class _VideoScreenState extends State<VideoScreen> {
       body: BlocBuilder<VideoBloc, VideoState>(
         builder: (context, state) {
           if (state is VideoStateLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const ListtileSkeleton();
           } else if (state is VideoStateErrorState) {
 
             return Center(child: Text('Error: ${state.error}'));
@@ -41,7 +42,7 @@ class _VideoScreenState extends State<VideoScreen> {
               child: Column(
                 children: state.data.data.map((video) {
                   return ListTile(
-                    onTap: () => Get.to(()=> VideoDetailScreen(videoModel: video.id,)),
+                    onTap: () => Get.to(()=> VideoDetailScreen(videoModel: video,)),
                     leading: const Icon(
                       Iconsax.video,
                       size: 28,

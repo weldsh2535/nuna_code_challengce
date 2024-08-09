@@ -7,7 +7,6 @@ import 'package:nuna_code_challenges/bloc_observer.dart';
 import 'package:nuna_code_challenges/firebase_options.dart';
 import 'package:nuna_code_challenges/navigation_menu.dart';
 import 'package:nuna_code_challenges/src/data/data_soucres/comment_provider.dart';
-import 'package:nuna_code_challenges/src/data/data_soucres/firebase.dart';
 import 'package:nuna_code_challenges/src/data/data_soucres/post_provider.dart';
 import 'package:nuna_code_challenges/src/data/data_soucres/product_provider.dart';
 import 'package:nuna_code_challenges/src/data/data_soucres/video_detail_provider.dart';
@@ -22,7 +21,6 @@ import 'package:nuna_code_challenges/src/presentation/blocs/posts/posts_bloc.dar
 import 'package:nuna_code_challenges/src/presentation/blocs/products/products_bloc.dart';
 import 'package:nuna_code_challenges/src/presentation/blocs/video_details/video_details_bloc.dart';
 import 'package:nuna_code_challenges/src/presentation/blocs/videos/video_bloc.dart';
-import 'package:nuna_code_challenges/src/presentation/screens/home/home.dart';
 import 'package:nuna_code_challenges/src/presentation/screens/notification.dart';
 
 
@@ -77,7 +75,7 @@ Future<void> requestPermission() async {
 
 NotificationSettings settings = await messaging.requestPermission(
   alert: true,
-  announcement: false,
+  announcement: true,
   badge: true,
   carPlay: false,
   criticalAlert: false,
@@ -120,10 +118,8 @@ class App extends StatelessWidget {
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.system,
-          // theme: TAppTheme.lightTheme,
-          // darkTheme: TAppTheme.darkTheme,
           navigatorKey: navigatorKey,
-          home: NavigationMenu(),
+          home: const NavigationMenu(),
           routes: {
             '/notification_screen':(context) => const NotificationScreen(),
           },

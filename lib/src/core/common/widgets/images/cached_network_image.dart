@@ -14,8 +14,8 @@ class CachedNewtorkImage extends StatelessWidget {
         imageBuilder: (context, imageProvider) => ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Container(
-                width: MediaQuery.of(context).size.width / 2,
-                height: double.maxFinite,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                  color: TColors.white.withOpacity(0.08),
                     image: DecorationImage(

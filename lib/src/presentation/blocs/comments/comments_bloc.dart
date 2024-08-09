@@ -15,7 +15,7 @@ class CommentsBloc extends Bloc<CommentsEvent, CommentsState> {
     emit(CommentsStateLoading());
     try {
       emit(CommentsStateLoading());
-      final commentResponse = await commentRepository.fetchComments();
+      final commentResponse = await commentRepository.fetchComments(event.id);
       // //print("object  ${response.first}");
       if (commentResponse.comments.isNotEmpty) {
         emit(CommentsStateSucess(commentResponse));

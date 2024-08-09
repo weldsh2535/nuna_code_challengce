@@ -25,22 +25,6 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     } catch (e) {
       emit(ProductsStateErrorState("Failed to try again"));
     }
-  
-    //   final stream = await orderRepository.getRiderOrder();
-    //   await emit.forEach(
-    //     stream,
-    //     onData: (List<OrderModel> orders) {
-    //       if (orders.isNotEmpty) {
-    //         return MyOrderStateSucess(orders);
-    //       } else {
-    //         return MyOrderStateErrorState("Failed to load orders, try again.");
-    //       }
-    //     },
-    //     onError: (_, __) =>
-    //         MyOrderStateErrorState("Failed to load orders, try again."),
-    //   );
-    // } catch (e) {
-    //   emit(MyOrderStateErrorState(e.toString()));
-    // }
+
   }
 }

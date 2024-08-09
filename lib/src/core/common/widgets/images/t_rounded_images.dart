@@ -1,6 +1,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:nuna_code_challenges/src/core/common/widgets/images/cached_network_image.dart';
 import 'package:nuna_code_challenges/src/core/constants/colors.dart';
 import 'package:nuna_code_challenges/src/core/constants/sizes.dart';
 
@@ -48,7 +49,7 @@ class TRoundedImages extends StatelessWidget {
           borderRadius: applyImageRadius
               ? BorderRadius.circular(borderRadius)
               : BorderRadius.zero,
-          child: CachedNetworkImage(imageUrl: imageUrl),
+          child: CachedNewtorkImage(imageUrl: imageUrl,),
         ),
       ),
     );

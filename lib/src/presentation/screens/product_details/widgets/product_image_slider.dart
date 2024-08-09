@@ -4,12 +4,12 @@ import 'package:iconsax/iconsax.dart';
 import 'package:nuna_code_challenges/src/core/common/custom_shapes/curved_edges/curved_edge_widgets.dart';
 import 'package:nuna_code_challenges/src/core/common/widgets/appbar/appbar.dart';
 import 'package:nuna_code_challenges/src/core/common/widgets/icons/t_circular_icon.dart';
+import 'package:nuna_code_challenges/src/core/common/widgets/images/cached_network_image.dart';
 import 'package:nuna_code_challenges/src/core/common/widgets/images/t_rounded_images.dart';
 import 'package:nuna_code_challenges/src/core/constants/colors.dart';
-import 'package:nuna_code_challenges/src/core/constants/image_strings.dart';
 import 'package:nuna_code_challenges/src/core/constants/sizes.dart';
 import 'package:nuna_code_challenges/src/core/utils/helpers/helper_funcations.dart';
-import 'package:nuna_code_challenges/src/presentation/screens/home.dart';
+import 'package:nuna_code_challenges/src/presentation/screens/home/home.dart';
 
 class ProductImageSlider extends StatelessWidget {
   const ProductImageSlider({
@@ -32,9 +32,8 @@ class ProductImageSlider extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(TSizes.productImageRadius * 2),
                 child: Center(
-                  child: Image(
-                    image: NetworkImage(images[0]),
-                  ),
+                  child:  CachedNewtorkImage(imageUrl: images[0]),
+                  
                 ),
               ),
             ),
@@ -43,7 +42,7 @@ class ProductImageSlider extends StatelessWidget {
               right: 0,
               bottom: 20,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: TSizes.defaultSpace,right: TSizes.defaultSpace),
                 child: SizedBox(
                   height: 80,
                   child: ListView.separated(
@@ -51,7 +50,7 @@ class ProductImageSlider extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     physics: const AlwaysScrollableScrollPhysics(),
-                    separatorBuilder: (_, index) => const SizedBox(
+                    separatorBuilder: (context, index) => const SizedBox(
                       width: TSizes.spaceBtwItems,
                     ),
                     itemBuilder: (_, index) => TRoundedImages(

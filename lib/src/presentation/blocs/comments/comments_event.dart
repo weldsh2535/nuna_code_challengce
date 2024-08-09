@@ -1,3 +1,5 @@
 abstract class CommentsEvent {}
 
-class FetchDataEvent extends CommentsEvent {}
+class FetchCommentsDataEvent extends CommentsEvent {
+
+}

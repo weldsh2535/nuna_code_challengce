@@ -1,3 +1,3 @@
 abstract class PostsEvent {}
 
-class FetchDataEvent extends PostsEvent {}
+class FetchPostEvent extends PostsEvent {}

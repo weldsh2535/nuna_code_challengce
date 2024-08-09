@@ -7,11 +7,11 @@ import 'package:nuna_code_challenges/src/presentation/blocs/comments/comments_st
 class CommentsBloc extends Bloc<CommentsEvent, CommentsState> {
   final CommentRepository commentRepository;
   CommentsBloc({required this.commentRepository}) : super(CommentsStateInital()) {
-    on<FetchDataEvent>(_onFetchData);
+    on<FetchCommentsDataEvent>(_onFetchData);
   }
 
   Future<void> _onFetchData(
-      FetchDataEvent event, Emitter<CommentsState> emit) async {
+      FetchCommentsDataEvent event, Emitter<CommentsState> emit) async {
     emit(CommentsStateLoading());
     try {
       emit(CommentsStateLoading());

@@ -10,5 +10,5 @@ class TImages {
   static const String onBoardingImage2 ="assets/images/on_boarding/onboarding1.gif";
   static const String onBoardingImage3 ="assets/images/on_boarding/onboarding2.gif";
 
-  static const String myprofile = "assets/logos/home_artist.png";
+  static const String myprofile = "assets/images/home_artist.png";
 }

@@ -7,11 +7,11 @@ import 'package:nuna_code_challenges/src/presentation/blocs/posts/posts_state.da
 class PostsBloc extends Bloc<PostsEvent, PostsState> {
   final PostRepository postRepository;
   PostsBloc({required this.postRepository}) : super(PostsStateInital()) {
-    on<FetchDataEvent>(_onFetchData);
+    on<FetchPostEvent>(_onFetchData);
   }
 
   Future<void> _onFetchData(
-      FetchDataEvent event, Emitter<PostsState> emit) async {
+      FetchPostEvent event, Emitter<PostsState> emit) async {
     emit(PostsStateLoading());
     try {
       emit(PostsStateLoading());

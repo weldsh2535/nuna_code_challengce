@@ -3,9 +3,9 @@ import 'package:nuna_code_challenges/src/presentation/screens/product_reviews/wi
 
 class TRatingBarIndicator extends StatelessWidget {
   const TRatingBarIndicator({
-    super.key,
+    super.key, required this.rating,
   });
-
+  final double rating;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -13,7 +13,7 @@ class TRatingBarIndicator extends StatelessWidget {
         Expanded(
             flex: 3,
             child: Text(
-              "4.6",
+              double.parse(rating.toStringAsFixed(1)).toString(),
               style: Theme.of(context).textTheme.displayLarge,
             )),
         const Expanded(

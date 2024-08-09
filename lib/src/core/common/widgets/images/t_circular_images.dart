@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:nuna_code_challenges/src/core/common/widgets/images/cached_network_image.dart';
 import 'package:nuna_code_challenges/src/core/constants/colors.dart';
 import 'package:nuna_code_challenges/src/core/constants/sizes.dart';
 import 'package:nuna_code_challenges/src/core/utils/helpers/helper_funcations.dart';
@@ -37,12 +38,7 @@ class TCircularImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
       ),
       child: Center(
-        child: Image(
-            fit: fit,
-            image: isNetworkImage
-                ? NetworkImage(imageUrl)
-                : AssetImage(imageUrl) as ImageProvider,
-                color: overlayColor,),
+        child: CachedNewtorkImage(imageUrl: imageUrl,),
                 
       ),
     );

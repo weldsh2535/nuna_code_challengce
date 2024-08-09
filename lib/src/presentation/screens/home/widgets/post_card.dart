@@ -12,7 +12,7 @@ import 'package:nuna_code_challenges/src/core/utils/helpers/helper_funcations.da
 import 'package:nuna_code_challenges/src/domain/models/post.dart';
 import 'package:nuna_code_challenges/src/domain/models/products.dart';
 
-import '../images/t_rounded_images.dart';
+import '../../../../core/common/widgets/images/t_rounded_images.dart';
 
 class PostCard extends StatelessWidget {
   const PostCard({super.key, required this.posts});

@@ -7,11 +7,11 @@ import 'package:nuna_code_challenges/src/presentation/blocs/video_details/video_
 class VideoDetailsBloc extends Bloc<VideoDetailEvent, VideoDetailState> {
   final VideoDetailRepository videoDetailRepository;
   VideoDetailsBloc({required this.videoDetailRepository}) : super(VideoDetailStateInital()) {
-    on<FetchDataEvent>(_onFetchData);
+    on<FetchVideoDataEvent>(_onFetchData);
   }
 
   Future<void> _onFetchData(
-      FetchDataEvent event, Emitter<VideoDetailState> emit) async {
+      FetchVideoDataEvent event, Emitter<VideoDetailState> emit) async {
     emit(VideoDetailStateLoading());
     try {
       emit(VideoDetailStateLoading());

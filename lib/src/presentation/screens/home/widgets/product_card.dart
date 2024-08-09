@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:nuna_code_challenges/src/core/common/custom_shapes/containers/rounded_container.dart';
 import 'package:nuna_code_challenges/src/core/common/styles/shadow_style.dart';
@@ -11,7 +12,7 @@ import 'package:nuna_code_challenges/src/core/constants/sizes.dart';
 import 'package:nuna_code_challenges/src/core/utils/helpers/helper_funcations.dart';
 import 'package:nuna_code_challenges/src/domain/models/products.dart';
 import 'package:nuna_code_challenges/src/presentation/screens/product_details/product_detail.dart';
-import '../images/t_rounded_images.dart';
+import '../../../../core/common/widgets/images/t_rounded_images.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key, required this.products});
@@ -22,12 +23,7 @@ class ProductCard extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>   ProductDetail(products: products,)),
-                    );
-       // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>  ProductDetail(products: products,)));
+         Get.to(() => ProductDetail(products: products));
       },
       child: Container(
         width: 180,
@@ -35,14 +31,14 @@ class ProductCard extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [TShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: dark ? TColors.darkerGrey : TColors.white
+          color: dark ? TColors.darkGrey : TColors.white
         ),
         child: Column(
           children: [
             // Thumbnail, wishlist button, Discount Tag
             TRoundedContainer(
               height: 180,
-              padding: const EdgeInsets.all(TSizes.md),
+            //  padding: const EdgeInsets.all(TSizes.md),
               backgroundColor: dark ? TColors.dark:TColors.light,
               child:  Stack(
                 children: [
@@ -50,6 +46,7 @@ class ProductCard extends StatelessWidget {
                    TRoundedImages(imageUrl: products.thumbnail,applyImageRadius: true,),
                  // -- Sale Tag
                   Positioned(
+                    left: 2,
                     top: 2,
                     child: TRoundedContainer(
                       radius: TSizes.sm,

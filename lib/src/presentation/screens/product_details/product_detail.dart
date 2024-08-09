@@ -49,17 +49,12 @@ class ProductDetail extends StatelessWidget {
                 //reviews
                 const Divider(),
                 const SizedBox(height:TSizes.spaceBtwItems),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ProductReviewScreen()));
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                       TSectionHeading(title: "Reviews(${products.reviews.length})",showActionButton: false,),
-                      IconButton(onPressed: ()=>Get.to(const ProductReviewScreen()), icon: const Icon(Iconsax.arrow_right3,size:18,))
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                     TSectionHeading(title: "Reviews(${products.reviews.length})",showActionButton: false,),
+                    IconButton(onPressed: ()=>Get.to( ProductReviewScreen(product: products)), icon: const Icon(Iconsax.arrow_right_3,size:18,))
+                  ],
                 )
 
               ],

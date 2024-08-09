@@ -56,7 +56,7 @@ class ProductMetaData extends StatelessWidget {
 
        Row(
          children: [
-          TCircularImage(imageUrl: TImages.facebook,
+          TCircularImage(imageUrl: product.images[0],
           width: 32,
           height: 32,
           overlayColor: darkMode ? TColors.white : TColors.black ,),

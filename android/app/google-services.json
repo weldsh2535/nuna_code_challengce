@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "870556665033",
+    "project_id": "sampleapp-5efc6",
+    "storage_bucket": "sampleapp-5efc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870556665033:android:52f246a786103cf5747918",
+        "android_client_info": {
+          "package_name": "com.example.nuna_code_challenges"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870556665033-0tip875na7c3k27m3nstet162u63e0rd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx4GuM_Yam2muzoQUO0I28NP0tI1_mTRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870556665033-0tip875na7c3k27m3nstet162u63e0rd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

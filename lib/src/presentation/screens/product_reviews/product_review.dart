@@ -4,11 +4,13 @@ import 'package:iconsax/iconsax.dart';
 import 'package:nuna_code_challenges/src/core/common/widgets/appbar/appbar.dart';
 import 'package:nuna_code_challenges/src/core/constants/colors.dart';
 import 'package:nuna_code_challenges/src/core/constants/sizes.dart';
+import 'package:nuna_code_challenges/src/domain/models/products.dart';
 import 'package:nuna_code_challenges/src/presentation/screens/product_reviews/widgets/rating_bar_indicator.dart';
 import 'package:nuna_code_challenges/src/presentation/screens/product_reviews/widgets/user_review_card.dart';
 
 class ProductReviewScreen extends StatelessWidget {
-  const ProductReviewScreen({super.key});
+  const ProductReviewScreen({super.key, required this.product});
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +25,11 @@ class ProductReviewScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("Ratring deccc data"),
-              const SizedBox(
-                height: TSizes.spaceBtwItems,
-              ),
-              const TRatingBarIndicator(),
+            //  Text("Ratring deccc data"),
+              // const SizedBox(
+              //   height: TSizes.spaceBtwItems,
+              // ),
+              TRatingBarIndicator(rating:product.rating),
               RatingBarIndicator(
                 rating: 3.4,
                 itemSize: 20,
@@ -35,14 +37,16 @@ class ProductReviewScreen extends StatelessWidget {
                 itemBuilder: (_, index) =>
                     const Icon(Iconsax.star1, color: TColors.primary),
               ),
-              Text(
-                '12/3/444',
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
+              // Text(
+              //   '12/3/444',
+              //   style: Theme.of(context).textTheme.bodySmall,
+              // ),
               const SizedBox(
                 height: TSizes.spaceBtwSections,
               ),
-              const UserReviewCard()
+            // Map reviews to UserReviewCard widgets
+              ...product.reviews.map((review) => UserReviewCard(review: review)),
+               
             ],
           ),
         ),

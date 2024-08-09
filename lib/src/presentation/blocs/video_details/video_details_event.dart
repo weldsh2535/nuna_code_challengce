@@ -1,6 +1,6 @@
 abstract class VideoDetailEvent {}
 
-class FetchDataEvent extends VideoDetailEvent {
+class FetchVideoDataEvent extends VideoDetailEvent {
   final String id;
-  FetchDataEvent(this.id);
+  FetchVideoDataEvent(this.id);
 }

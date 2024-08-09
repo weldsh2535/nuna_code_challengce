@@ -6,12 +6,14 @@ import 'package:nuna_code_challenges/src/core/common/custom_shapes/containers/ro
 import 'package:nuna_code_challenges/src/core/constants/colors.dart';
 import 'package:nuna_code_challenges/src/core/constants/image_strings.dart';
 import 'package:nuna_code_challenges/src/core/constants/sizes.dart';
+import 'package:nuna_code_challenges/src/core/utils/formatters/formatter.dart';
 import 'package:nuna_code_challenges/src/core/utils/helpers/helper_funcations.dart';
+import 'package:nuna_code_challenges/src/domain/models/products.dart';
 import 'package:readmore/readmore.dart';
 
 class UserReviewCard extends StatelessWidget {
-  const UserReviewCard({super.key});
-
+  const UserReviewCard({super.key, required this.review});
+  final Review review;
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
@@ -29,7 +31,7 @@ class UserReviewCard extends StatelessWidget {
                   width: TSizes.spaceBtwItems,
                 ),
                 Text(
-                  'jone abebe',
+                  review.reviewerName,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
@@ -43,7 +45,7 @@ class UserReviewCard extends StatelessWidget {
         Row(
           children: [
             RatingBarIndicator(
-              rating: 3.4,
+              rating: review.rating.toDouble(),
               itemSize: 20,
               unratedColor: TColors.grey,
               itemBuilder: (_, index) =>
@@ -53,7 +55,7 @@ class UserReviewCard extends StatelessWidget {
               width: TSizes.spaceBtwItems,
             ),
             Text(
-              '01 ,nov, 2023',
+              TFormatter.formatDate(review.date),
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
@@ -61,65 +63,65 @@ class UserReviewCard extends StatelessWidget {
           const SizedBox(
               width: TSizes.spaceBtwItems,
             ),
-            const ReadMoreText(
-              "When you refer to best context, it could mean several things depending on what you're looking to achieve. Here are a few interpretations and tips for handling context effectively in different scenarios:",
+             ReadMoreText(
+              review.comment,
               trimLines: 2,
               trimMode: TrimMode.Line,
               trimCollapsedText: 'Show more',
               trimExpandedText: 'Less',
-              moreStyle: TextStyle(
+              moreStyle: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                   color: TColors.primary),
-              lessStyle: TextStyle(
+              lessStyle: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                   color: TColors.primary),
             ),
-            const SizedBox(
-              width: TSizes.spaceBtwItems,
-            ),
-            TRoundedContainer(
-              backgroundColor: dark ? TColors.darkerGrey : TColors.grey,
-              child: Padding(
-                padding: const EdgeInsets.all(TSizes.md),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "I am agree",
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        Text(
-                          "I am agree",
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      width: TSizes.spaceBtwItems,
-                    ),
-                    const ReadMoreText(
-                      "When you refer to best context, it could mean several things depending on what you're looking to achieve. Here are a few interpretations and tips for handling context effectively in different scenarios:n",
-                      trimLines: 2,
-                      trimMode: TrimMode.Line,
-                      trimCollapsedText: 'Show more',
-                      trimExpandedText: 'Less',
-                      moreStyle: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: TColors.primary),
-                      lessStyle: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: TColors.primary),
-                    ),
-                  ],
-                ),
-              ),
-            )
+            // const SizedBox(
+            //   width: TSizes.spaceBtwItems,
+            // ),
+            // TRoundedContainer(
+            //   backgroundColor: dark ? TColors.darkerGrey : TColors.grey,
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(TSizes.md),
+            //     child: Column(
+            //       children: [
+            //         Row(
+            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //           children: [
+            //             Text(
+            //               "I am agree",
+            //               style: Theme.of(context).textTheme.titleMedium,
+            //             ),
+            //             Text(
+            //               "I am agree",
+            //               style: Theme.of(context).textTheme.bodyMedium,
+            //             ),
+            //           ],
+            //         ),
+            //         const SizedBox(
+            //           width: TSizes.spaceBtwItems,
+            //         ),
+            //         const ReadMoreText(
+            //           "When you refer to best context, it could mean several things depending on what you're looking to achieve. Here are a few interpretations and tips for handling context effectively in different scenarios:n",
+            //           trimLines: 2,
+            //           trimMode: TrimMode.Line,
+            //           trimCollapsedText: 'Show more',
+            //           trimExpandedText: 'Less',
+            //           moreStyle: TextStyle(
+            //               fontSize: 14,
+            //               fontWeight: FontWeight.bold,
+            //               color: TColors.primary),
+            //           lessStyle: TextStyle(
+            //               fontSize: 14,
+            //               fontWeight: FontWeight.bold,
+            //               color: TColors.primary),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // )
           
       ],
     );
